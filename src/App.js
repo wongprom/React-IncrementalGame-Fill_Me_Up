@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import Button from './components/Button';
+import Card from './components/Card';
+
 
 
 class App extends Component {
@@ -17,11 +19,13 @@ class App extends Component {
     return (
       <div>
         <Header />
+        <Card pressTotal={this.state.counter} />
         <Button handleClick={this.handleClick} />
-        <h2>{this.state.counter}</h2>
       </div>
     );
   }
 }
+
+
 
 export default App;
