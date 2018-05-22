@@ -1,9 +1,9 @@
 import React from 'react';
 import IncrementButton from '../styledComponent/IncrementButton';
 
-function Button() {
+function Button(props) {
     return(
-        <IncrementButton>
+        <IncrementButton onClick={props.handleClick}>
             Click To Fill Me Up
         </IncrementButton>
     )
