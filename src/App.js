@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import Button from './components/Button';
 import Card from './components/Card';
+import StyledCard from './styledComponent/StyledCard';
+import StyledDiv from './styledComponent/StyledDiv';
+import StyledMainWrapper from './styledComponent/StyledMainWrapper';
+import StyledTitle from './styledComponent/StyledTitle';
+
+
 
 
 
@@ -17,11 +23,21 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
-        <Header />
-        <Card pressTotal={this.state.counter} />
-        <Button handleClick={this.handleClick} />
-      </div>
+      <StyledMainWrapper>
+        <StyledDiv>
+          <Header />
+          <Button handleClick={this.handleClick} />
+          <Card pressTotal={this.state.counter} />
+        </StyledDiv>
+
+        <StyledDiv>
+          <StyledTitle> Main Conten goes here</StyledTitle>
+        </StyledDiv>
+
+        <StyledDiv>
+        <StyledTitle> Next level Content Goes Here</StyledTitle> 
+        </StyledDiv>
+      </StyledMainWrapper>
     );
   }
 }
