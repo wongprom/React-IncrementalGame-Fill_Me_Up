@@ -35,7 +35,7 @@ class App extends Component {
         </StyledDiv>
 
         <StyledDiv>
-        <StyledTitle> Next level Content Goes Here</StyledTitle> 
+          <StyledTitle> Next level Content Goes Here</StyledTitle> 
         </StyledDiv>
       </StyledMainWrapper>
     );
