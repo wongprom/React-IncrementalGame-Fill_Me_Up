@@ -25,21 +25,34 @@ class App extends Component {
     return (
       <StyledMainWrapper>
         <StyledDiv>
-          <Header />
+        <StyledTitle>
+          Column 1 <br />
+          Main Content Goes Here
+         </StyledTitle>
           <Button handleClick={this.handleClick} />
           <Card pressTotal={this.state.counter} />
         </StyledDiv>
 
         <StyledDiv>
-          <StyledTitle> Main Conten goes here</StyledTitle>
+        <StyledTitle>
+          Column 2 <br />
+          Main Content Goes Here
+         </StyledTitle>
         </StyledDiv>
 
         <StyledDiv>
-          <StyledTitle> Next level Content Goes Here</StyledTitle> 
+          <StyledTitle>
+            Column 3 <br />
+            Main Content Goes Here
+          </StyledTitle> 
         </StyledDiv>
       </StyledMainWrapper>
     );
   }
+}
+
+const values = {
+  
 }
 
 
