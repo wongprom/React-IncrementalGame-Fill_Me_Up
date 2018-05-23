@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 const StyledMainWrapper= styled.div`
 background-color:#A9A9A9;   
-margin: 0 auto;
+height: 100%;
+display:grid;
+grid-template-columns:repeat(3, 1fr) ;
 `;
 export default StyledMainWrapper;
