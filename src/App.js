@@ -19,7 +19,7 @@ class App extends Component {
   handleClick = () => {
     let modifier = 1;
     if(this.state.counter >= 10){
-      modifier=2
+      modifier=2;
     }
     this.setState ({
       counter: this.state.counter + modifier
@@ -30,12 +30,23 @@ class App extends Component {
   handleLogin = (user) => {
     this.setState({ user: user });
   }
+
   
   render() {
+
+    let view = <NameForm handleLogin={this.handleLogin}/>
+    if(this.state.user){
+      view = <StyledMainWrapper />
+    }else{
+      return view;
+    }
+
     return (
-      <StyledMainWrapper>
+      <mainContainer>
+        {view}
+       <StyledMainWrapper>
         <StyledDiv>
-        <NameForm handleLogin={this.handleLogin}/>
+
         <StyledTitle>
           Column 1 <br />
           Main Content Goes Here
@@ -57,8 +68,8 @@ class App extends Component {
             Main Content Goes Here
           </StyledTitle> 
         </StyledDiv>
-
-      </StyledMainWrapper>
+      </StyledMainWrapper> 
+      </mainContainer>
     );
   }
 }
