@@ -8,6 +8,7 @@ import StyledMainWrapper from './styledComponent/StyledMainWrapper';
 import StyledTitle from './styledComponent/StyledTitle';
 import NameForm from './components/NameForm';
 import OutputUserName from './components/OutputUserName';
+import Upgrade1 from './components/Upgrade1';
 
 
 class App extends Component {
@@ -67,6 +68,7 @@ class App extends Component {
             Column 3 <br />
             Main Content Goes Here
           </StyledTitle> 
+          <Upgrade1 />
         </StyledDiv>
       </StyledMainWrapper> 
       </mainContainer>
