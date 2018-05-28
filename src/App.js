@@ -6,25 +6,36 @@ import StyledCard from './styledComponent/StyledCard';
 import StyledDiv from './styledComponent/StyledDiv';
 import StyledMainWrapper from './styledComponent/StyledMainWrapper';
 import StyledTitle from './styledComponent/StyledTitle';
-
-
-
+import NameForm from './components/NameForm';
+import OutputUserName from './components/OutputUserName';
 
 
 class App extends Component {
   state = {
-    counter : 0,
+    counter : 0,  
+    user : '',
   }
 
   handleClick = () => {
+    let modifier = 1;
+    if(this.state.counter >= 10){
+      modifier=2
+    }
     this.setState ({
-      counter: this.state.counter + 1
+      counter: this.state.counter + modifier
     });
   }
+  
+  // enda sättet att skicka data TILL "parent" FRÅN "child" komponent.
+  handleLogin = (user) => {
+    this.setState({ user: user });
+  }
+  
   render() {
     return (
       <StyledMainWrapper>
         <StyledDiv>
+        <NameForm handleLogin={this.handleLogin}/>
         <StyledTitle>
           Column 1 <br />
           Main Content Goes Here
@@ -34,10 +45,10 @@ class App extends Component {
         </StyledDiv>
 
         <StyledDiv>
-        <StyledTitle>
-          Column 2 <br />
-          Main Content Goes Here
-         </StyledTitle>
+          <OutputUserName user={this.state.user}/>
+          <StyledTitle>
+          
+          </StyledTitle>
         </StyledDiv>
 
         <StyledDiv>
@@ -46,14 +57,13 @@ class App extends Component {
             Main Content Goes Here
           </StyledTitle> 
         </StyledDiv>
+
       </StyledMainWrapper>
     );
   }
 }
 
-const values = {
-  
-}
+
 
 
 
