@@ -9,9 +9,10 @@ class NameForm extends React.Component {
         this.setState({ user : event.target.value});
     }
 
-       //skicka från child till parent 
+        
     handleSubmit = (event) => {
         event.preventDefault();
+        //skicka från child till parent
         this.props.handleLogin(this.state.user);   
     }
     

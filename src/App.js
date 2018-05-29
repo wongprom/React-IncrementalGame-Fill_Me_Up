@@ -17,20 +17,32 @@ class App extends Component {
     user : '',
   }
 
-  handleClick = () => {
-    let modifier = 1;
-    if(this.state.counter >= 10){
-      modifier=2;
-    }
-    this.setState ({
-      counter: this.state.counter + modifier
-    });
-  }
-  
-  // enda sättet att skicka data TILL "parent" FRÅN "child" komponent.
   handleLogin = (user) => {
     this.setState({ user: user });
   }
+
+  handleClick = () => {
+    this.setState({ counter : this.state.counter + 1 })
+  }
+
+  handleClickActivetUpgrade1 = () => {
+    this.setState({ counter : this.state.counter - 10 })
+  }
+
+  //Make 1 click = 2 clicks.
+  // handleClick = () => {
+  //   let modifier = 1;
+  //   if(this.state.counter >= 10){
+  //     modifier=2;
+  //   }
+  //   this.setState ({
+  //     counter: this.state.counter + modifier
+  //   });
+  // }
+  
+  // enda sättet att skicka data TILL "parent" FRÅN "child" komponent.
+
+  
 
   
   render() {
@@ -41,6 +53,15 @@ class App extends Component {
     }else{
       return view;
     }
+
+    let upgrade1 = <Upgrade1 handleClickActivetUpgrade1 = {this.handleClickActivetUpgrade1} />
+    if(this.state.counter >= 5) {
+      upgrade1 = <Upgrade1 handleClickActivetUpgrade1 = {this.handleClickActivetUpgrade1} />
+    }else{
+      upgrade1 = null;
+    }
+
+
 
     return (
       <mainContainer>
@@ -68,7 +89,7 @@ class App extends Component {
             Column 3 <br />
             Main Content Goes Here
           </StyledTitle> 
-          <Upgrade1 />
+          {upgrade1}
         </StyledDiv>
       </StyledMainWrapper> 
       </mainContainer>
