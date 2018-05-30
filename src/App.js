@@ -9,6 +9,7 @@ import StyledTitle from './styledComponent/StyledTitle';
 import NameForm from './components/NameForm';
 import OutputUserName from './components/OutputUserName';
 import Upgrade1 from './components/Upgrade1';
+import Upgrade2 from './components/Upgrade2';
 
 
 class App extends Component {
@@ -30,10 +31,16 @@ class App extends Component {
 
 
   handleClickActivetUpgrade1 = () => {
-    //this.handleClick();
     this.setState({ 
       counter : this.state.counter - 10,
       multiplier : this.state.multiplier + 1
+    })
+  }
+
+  handleClickActivateUpgrade2 = () => {
+    this.setState({
+      counter : this.state.counter -30,
+      multiplier : this.state.multiplier + 3
     })
   }
 
@@ -47,14 +54,21 @@ class App extends Component {
     }
 
     let upgrade1 = <Upgrade1 handleClickActivetUpgrade1 = {this.handleClickActivetUpgrade1} />
-    if(this.state.counter >= 5) {
+    if(this.state.counter >= 10) {
       upgrade1 = <Upgrade1 handleClickActivetUpgrade1 = {this.handleClickActivetUpgrade1} />
     }else{
       upgrade1 = null;
     }
 
+    let upgrade2 = <Upgrade2 handleClickActivateUpgrade2 = {this.handleClickActivateUpgrade2} />
+    if(this.state.counter >= 30) {
+      upgrade2 = <Upgrade2 handleClickActivateUpgrade2 = {this.handleClickActivateUpgrade2}/>
+    }else{
+      upgrade2 = null;
+    }
+
     return (
-      <mainContainer>
+      <React.Fragment>
         {view}
        <StyledMainWrapper>
         <StyledDiv>
@@ -79,10 +93,11 @@ class App extends Component {
             Column 3 <br />
             Main Content Goes Here
           </StyledTitle> 
-          {upgrade1}
+          { upgrade1 }
+          { upgrade2 }
         </StyledDiv>
       </StyledMainWrapper> 
-      </mainContainer>
+      </React.Fragment>
     );
   }
 }
