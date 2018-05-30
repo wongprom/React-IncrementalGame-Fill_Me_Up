@@ -12,6 +12,8 @@ import Upgrade1 from './components/Upgrade1';
 import Upgrade2 from './components/Upgrade2';
 import Upgrade3 from './components/Upgrade3';
 import Upgrade4 from './components/Upgrade4';
+import Upgrade5 from './components/Upgrade5';
+
 
 
 
@@ -19,7 +21,7 @@ class App extends Component {
   state = {
     counter : 0,  
     user : '',
-    multiplier: 1
+    multiplier: 1,
   }
 
   handleLogin = (user) => {
@@ -61,6 +63,15 @@ class App extends Component {
     })
   }
 
+  handleClickActivateUpgrade5 = () => {
+      this.setState({
+        counter : this.state.counter - 400
+      })
+      this.interval = setInterval(this.handleClick,1000);
+      //clearIntervall stannar räknaren när man kallar på den
+      //clearInterval(this.interval);
+  }
+
   render() {
 
     let view = <NameForm handleLogin={this.handleLogin}/>
@@ -98,6 +109,14 @@ class App extends Component {
       upgrade4 = null;
     }
   
+    let upgrade5 = <Upgrade5 autoClicker = {this.handleClickActivateUpgrade5} />
+    if(this.state.counter >= 400){
+      upgrade5 = <Upgrade5 autoClicker = {this.handleClickActivateUpgrade5} />
+    }else{
+      upgrade5 = null;
+    }
+    
+    
 
     
 
@@ -133,6 +152,7 @@ class App extends Component {
           { upgrade2 }
           { upgrade3 }
           { upgrade4 }
+          { upgrade5 }
         </StyledDiv>
       </StyledMainWrapper> 
       </React.Fragment>
