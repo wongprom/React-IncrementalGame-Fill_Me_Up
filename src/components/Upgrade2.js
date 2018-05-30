@@ -3,7 +3,7 @@ import StyledCard from '../styledComponent/StyledCard';
 
 function Upgrade2(props) {
     return(
-        <StyledCard onClick = {props.handleClickActivateUpgrade2}>
+        <StyledCard onClick = {props.upgradeFunction}>
             <h2>Upgrade 2</h2>
             <p>This Upgrade Cost: 30 Clicks</p>
             <h3>Upgrade Info</h3>

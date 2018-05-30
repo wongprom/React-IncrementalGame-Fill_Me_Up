@@ -1,14 +1,14 @@
 import React from 'react';
 import StyledCard from '../styledComponent/StyledCard';
- 
-function Upgrade1(props) {
+
+function Upgrade3(props) {
     return(
         <StyledCard onClick = {props.upgradeFunction}>
-            <h2>Upgrade 1</h2>
-            <p>This Upgrade Cost: 10 Clicks</p>
+            <h2>Upgrade 3</h2>
+            <p>This Upgrade Cost: 70 Clicks</p>
             <h3>Upgrade Info</h3>
-            <p>1 Click = 2 Clicks</p>    
+            <p>1 Click = 10 Clicks</p>   
         </StyledCard>
-    );  
+    );
 }
-export default Upgrade1;
+export default Upgrade3;

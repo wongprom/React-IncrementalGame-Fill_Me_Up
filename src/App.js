@@ -10,6 +10,7 @@ import NameForm from './components/NameForm';
 import OutputUserName from './components/OutputUserName';
 import Upgrade1 from './components/Upgrade1';
 import Upgrade2 from './components/Upgrade2';
+import Upgrade3 from './components/Upgrade3';
 
 
 class App extends Component {
@@ -30,7 +31,7 @@ class App extends Component {
   }
 
 
-  handleClickActivetUpgrade1 = () => {
+  handleClickActivateUpgrade1 = () => {
     this.setState({ 
       counter : this.state.counter - 10,
       multiplier : this.state.multiplier + 1
@@ -44,6 +45,13 @@ class App extends Component {
     })
   }
 
+  handleClickActivateUpgrade3 = () => {
+    this.setState({
+      counter : this.state.counter -70,
+      multiplier : this.state.multiplier + 5
+    })
+  }
+
   render() {
 
     let view = <NameForm handleLogin={this.handleLogin}/>
@@ -53,19 +61,30 @@ class App extends Component {
       return view;
     }
 
-    let upgrade1 = <Upgrade1 handleClickActivetUpgrade1 = {this.handleClickActivetUpgrade1} />
+    let upgrade1 = <Upgrade1 upgradeFunction = {this.handleClickActivateUpgrade1} />
     if(this.state.counter >= 10) {
-      upgrade1 = <Upgrade1 handleClickActivetUpgrade1 = {this.handleClickActivetUpgrade1} />
+      upgrade1 = <Upgrade1 upgradeFunction = {this.handleClickActivateUpgrade1} />
     }else{
       upgrade1 = null;
     }
 
-    let upgrade2 = <Upgrade2 handleClickActivateUpgrade2 = {this.handleClickActivateUpgrade2} />
+    let upgrade2 = <Upgrade2 upgradeFunction = {this.handleClickActivateUpgrade2} />
     if(this.state.counter >= 30) {
-      upgrade2 = <Upgrade2 handleClickActivateUpgrade2 = {this.handleClickActivateUpgrade2}/>
+      upgrade2 = <Upgrade2 upgradeFunction = {this.handleClickActivateUpgrade2}/>
     }else{
       upgrade2 = null;
     }
+
+    let upgrade3 = <Upgrade3 upgradeFunction = {this.handleClickActivateUpgrade3} />
+    if(this.state.counter >= 100){
+      upgrade3 = <Upgrade3 upgradeFunction = {this.handleClickActivateUpgrade3} />
+    }else{
+      upgrade3 = null;
+    }
+
+    
+
+
 
     return (
       <React.Fragment>
@@ -95,6 +114,7 @@ class App extends Component {
           </StyledTitle> 
           { upgrade1 }
           { upgrade2 }
+          { upgrade3 }
         </StyledDiv>
       </StyledMainWrapper> 
       </React.Fragment>
