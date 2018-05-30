@@ -11,6 +11,8 @@ import OutputUserName from './components/OutputUserName';
 import Upgrade1 from './components/Upgrade1';
 import Upgrade2 from './components/Upgrade2';
 import Upgrade3 from './components/Upgrade3';
+import Upgrade4 from './components/Upgrade4';
+
 
 
 class App extends Component {
@@ -52,6 +54,13 @@ class App extends Component {
     })
   }
 
+  handleClickActivateUpgrade4 = () => {
+    this.setState({
+      counter : this.state.counter - 200,
+      multipiler : this.state.multiplier + 10
+    })
+  }
+
   render() {
 
     let view = <NameForm handleLogin={this.handleLogin}/>
@@ -81,6 +90,14 @@ class App extends Component {
     }else{
       upgrade3 = null;
     }
+
+    let upgrade4 = <Upgrade4 upgradeFunction = {this.handleClickActivateUpgrade4} />
+    if(this.state.counter >= 200){
+      upgrade4 = <Upgrade4 upgradeFunction = {this.handleClickActivateUpgrade4} />
+    }else{
+      upgrade4 = null;
+    }
+  
 
     
 
@@ -115,6 +132,7 @@ class App extends Component {
           { upgrade1 }
           { upgrade2 }
           { upgrade3 }
+          { upgrade4 }
         </StyledDiv>
       </StyledMainWrapper> 
       </React.Fragment>
