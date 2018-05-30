@@ -15,6 +15,7 @@ class App extends Component {
   state = {
     counter : 0,  
     user : '',
+    multiplier: 1
   }
 
   handleLogin = (user) => {
@@ -22,29 +23,20 @@ class App extends Component {
   }
 
   handleClick = () => {
-    this.setState({ counter : this.state.counter + 1 })
+    this.setState({ 
+      counter : this.state.counter  + (1 * this.state.multiplier)
+    })
   }
+
 
   handleClickActivetUpgrade1 = () => {
-    this.setState({ counter : this.state.counter - 10 })
+    //this.handleClick();
+    this.setState({ 
+      counter : this.state.counter - 10,
+      multiplier : this.state.multiplier + 1
+    })
   }
 
-  //Make 1 click = 2 clicks.
-  // handleClick = () => {
-  //   let modifier = 1;
-  //   if(this.state.counter >= 10){
-  //     modifier=2;
-  //   }
-  //   this.setState ({
-  //     counter: this.state.counter + modifier
-  //   });
-  // }
-  
-  // enda sättet att skicka data TILL "parent" FRÅN "child" komponent.
-
-  
-
-  
   render() {
 
     let view = <NameForm handleLogin={this.handleLogin}/>
@@ -60,8 +52,6 @@ class App extends Component {
     }else{
       upgrade1 = null;
     }
-
-
 
     return (
       <mainContainer>
@@ -96,9 +86,5 @@ class App extends Component {
     );
   }
 }
-
-
-
-
 
 export default App;
