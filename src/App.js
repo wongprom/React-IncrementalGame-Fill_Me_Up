@@ -82,8 +82,7 @@ class App extends Component {
       return view;
     }
 
-    // let upgrade1 = <Upgrade1 upgradeFunction = {this.handleClickActivateUpgrade1} />
-    let upgrade1 = '';
+    let upgrade1 = <Upgrade1 upgradeFunction = {this.handleClickActivateUpgrade1} />
     if(this.state.counter >= 10) {
       upgrade1 = <Upgrade1 upgradeFunction = {this.handleClickActivateUpgrade1} />
     }else{
