@@ -65,7 +65,7 @@ class App extends Component {
 
   handleClickActivateUpgrade5 = () => {
       this.setState({
-        counter : this.state.counter - 400
+        counter : this.state.counter - 400 
       })
       this.interval = setInterval(this.handleClick,1000);
       //clearIntervall stannar räknaren när man kallar på den
@@ -75,13 +75,15 @@ class App extends Component {
   render() {
 
     let view = <NameForm handleLogin={this.handleLogin}/>
+    //this.state.user = tom = false
     if(this.state.user){
       view = <StyledMainWrapper />
     }else{
       return view;
     }
 
-    let upgrade1 = <Upgrade1 upgradeFunction = {this.handleClickActivateUpgrade1} />
+    // let upgrade1 = <Upgrade1 upgradeFunction = {this.handleClickActivateUpgrade1} />
+    let upgrade1 = '';
     if(this.state.counter >= 10) {
       upgrade1 = <Upgrade1 upgradeFunction = {this.handleClickActivateUpgrade1} />
     }else{
@@ -116,12 +118,6 @@ class App extends Component {
       upgrade5 = null;
     }
     
-    
-
-    
-
-
-
     return (
       <React.Fragment>
         {view}

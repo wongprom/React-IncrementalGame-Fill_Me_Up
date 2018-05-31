@@ -1,4 +1,4 @@
-import React from 'react-dom';
+//import React from 'react-dom';
 import styled from 'styled-components';
 
 const IncrementButton = styled.button`
