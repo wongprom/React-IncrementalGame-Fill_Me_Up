@@ -17,6 +17,7 @@ import Upgrade5 from './components/Upgrade5';
 
 
 
+
 class App extends Component {
   state = {
     counter : 0,  
@@ -119,30 +120,22 @@ class App extends Component {
     
     return (
       <React.Fragment>
-        {view}
+        {view }
        <StyledMainWrapper>
         <StyledDiv>
-
-        <StyledTitle>
-          Column 1 <br />
-          Main Content Goes Here
-         </StyledTitle>
-          <Button handleClick={this.handleClick} />
+          <StyledTitle>Number Of Clicks</StyledTitle>
           <Card pressTotal={this.state.counter} />
+          <Button handleClick={this.handleClick} />
         </StyledDiv>
 
         <StyledDiv>
+        <StyledTitle>User</StyledTitle>
           <OutputUserName user={this.state.user}/>
-          <StyledTitle>
           
-          </StyledTitle>
         </StyledDiv>
-
+        
         <StyledDiv>
-          <StyledTitle>
-            Column 3 <br />
-            Main Content Goes Here
-          </StyledTitle> 
+          <StyledTitle>Your Upgrades</StyledTitle> 
           { upgrade1 }
           { upgrade2 }
           { upgrade3 }
