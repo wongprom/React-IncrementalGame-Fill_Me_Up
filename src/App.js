@@ -14,15 +14,12 @@ import Upgrade3 from './components/Upgrade3';
 import Upgrade4 from './components/Upgrade4';
 import Upgrade5 from './components/Upgrade5';
 
-
-
-
-
 class App extends Component {
   state = {
     counter : 0,  
     user : '',
     multiplier: 1,
+   // disabledUpgrades: [],
   }
 
   handleLogin = (user) => {
@@ -35,42 +32,58 @@ class App extends Component {
     })
   }
 
+  
 
   handleClickActivateUpgrade1 = () => {
+    // let disabledUpgrades = [];
+    // disabledUpgrades.push("upgrade1");
     this.setState({ 
       counter : this.state.counter - 10,
-      multiplier : this.state.multiplier + 1
+      multiplier : this.state.multiplier + 1,
+      // disabledUpgrades: disabledUpgrades
     })
   }
 
   handleClickActivateUpgrade2 = () => {
+    // let disabledUpgrades = [];
+    // disabledUpgrades.push("upgrade2");
     this.setState({
       counter : this.state.counter -30,
-      multiplier : this.state.multiplier + 3
+      multiplier : this.state.multiplier + 3,
+      // disabledUpgrades: disabledUpgrades
     })
   }
 
   handleClickActivateUpgrade3 = () => {
+    // let disabledUpgrades = [];
+    // disabledUpgrades.push("upgrade3");
     this.setState({
       counter : this.state.counter -70,
-      multiplier : this.state.multiplier + 5
+      multiplier : this.state.multiplier + 5,
+      // disabledUpgrades: disabledUpgrades
     })
   }
 
   handleClickActivateUpgrade4 = () => {
+    // let disabledUpgrades = [];
+    // disabledUpgrades.push("upgrade4");
     this.setState({
       counter : this.state.counter - 200,
-      multipiler : this.state.multiplier + 10
+      multiplier : this.state.multiplier + 10,
+      // disabledUpgrades: disabledUpgrades
     })
   }
 
   handleClickActivateUpgrade5 = () => {
+    // let disabledUpgrades = [];
+    // disabledUpgrades.push("upgrade5");
       this.setState({
-        counter : this.state.counter - 400 
-      })
+        counter : this.state.counter - 400,
+      //   disabledUpgrades: disabledUpgrades
+       })
       this.interval = setInterval(this.handleClick,1000);
       //clearIntervall stannar räknaren när man kallar på den
-      //clearInterval(this.interval);
+      clearInterval(this.interval);
   }
 
   render() {
@@ -90,7 +103,8 @@ class App extends Component {
       upgrade1 = null;
     }
 
-    let upgrade2 = <Upgrade2 upgradeFunction = {this.handleClickActivateUpgrade2} />
+    // (!this.state.disabledUpgrades.includes("upgrade2") && this.state.counter >= 30)
+    let upgrade2 = <Upgrade2  upgradeFunction = {this.handleClickActivateUpgrade2} />
     if(this.state.counter >= 30) {
       upgrade2 = <Upgrade2 upgradeFunction = {this.handleClickActivateUpgrade2}/>
     }else{
@@ -129,9 +143,8 @@ class App extends Component {
         </StyledDiv>
 
         <StyledDiv>
-        <StyledTitle>User</StyledTitle>
-          <OutputUserName user={this.state.user}/>
-          
+          <StyledTitle>User</StyledTitle>
+          <OutputUserName user={this.state.user}/> 
         </StyledDiv>
         
         <StyledDiv>
